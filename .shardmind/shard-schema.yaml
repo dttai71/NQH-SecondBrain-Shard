@@ -58,7 +58,7 @@ groups:
 modules:
   core:
     label: "PARA + templates + Dashboard + .claude/ (bắt buộc)"
-    paths: ["00 - Inbox/", "01 - Projects/", "02 - Areas/", "03 - Resources/", "04 - Archive/", "05 - Daily Notes/", "06 - Templates/", "07 - Maps of Content/", "09 - Skills/", ".claude/", ".obsidian/"]
+    paths: ["00 - Inbox/", "01 - Projects/", "02 - Areas/", "03 - Resources/", "04 - Archive/", "05 - Daily Notes/", "06 - Templates/", "07 - Maps of Content/", "08 - Context/", "09 - Skills/", ".claude/", ".obsidian/"]
     removable: false
 
   sdlc:

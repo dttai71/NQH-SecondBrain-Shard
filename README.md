@@ -35,7 +35,7 @@ Mở vault trong **VS Code** (File → Open Folder), rồi dùng extension AI:
   `portal.nhatquangholding.com/my-ai-key` (đăng nhập NQH SSO/Zitadel). Xem chi tiết
   `02_Installation.md` mục B.
 - **Kimi Code / Claude Code** — tuỳ chọn, chỉ dùng nếu cá nhân đã có tài khoản/quyền riêng.
-- Chưa từng dùng VS Code/AI agent? Đọc **09_Beginner_Guide_AI_Agents.md** trong kho tài liệu đào
+- Chưa từng dùng VS Code/AI agent? Đọc **01_Beginner_Guide_AI_Agents.md** trong kho tài liệu đào
   tạo (link ở đầu file này).
 
 ## Kết nối thêm — MTClaw, Email/Lịch
