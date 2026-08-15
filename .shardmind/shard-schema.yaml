@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/breferrari/shardmind/main/schemas/shard-schema.schema.json
+
+schema_version: 1
+
+values:
+  ho_ten:
+    type: string
+    required: true
+    message: "Họ tên đầy đủ"
+    default: ""
+    group: setup
+
+  chuc_danh:
+    type: string
+    required: true
+    message: "Chức danh"
+    hint: "vd: FOH Supervisor, Accountant, Marketing Executive..."
+    default: ""
+    group: setup
+
+  phong_ban:
+    type: string
+    required: true
+    message: "Phòng ban / CC"
+    hint: "vd: CC-NQDL-OPS, CC-NQH-FIN..."
+    default: ""
+    group: setup
+
+  pc_bu:
+    type: string
+    message: "PC / BU"
+    hint: "vd: PC-BKL, PC-THOM, NQH HO..."
+    default: ""
+    group: setup
+
+  bao_cao_cho:
+    type: string
+    message: "Báo cáo cho (quản lý trực tiếp)"
+    default: ""
+    group: setup
+
+  trach_nhiem_chinh:
+    type: list
+    message: "Trách nhiệm chính (cách nhau bằng dấu phẩy)"
+    default: []
+    group: setup
+
+  sop_hay_dung:
+    type: list
+    message: "SOP hay tra cứu (cách nhau bằng dấu phẩy)"
+    default: []
+    group: setup
+
+groups:
+  - id: setup
+    label: "Thông tin vai trò"
+
+modules:
+  core:
+    label: "PARA + templates + Dashboard + .claude/ (bắt buộc)"
+    paths: ["00 - Inbox/", "01 - Projects/", "02 - Areas/", "03 - Resources/", "04 - Archive/", "05 - Daily Notes/", "06 - Templates/", "07 - Maps of Content/", "09 - Skills/", ".claude/", ".obsidian/"]
+    removable: false
+
+  sdlc:
+    label: "SDLC Enterprise Framework — chỉ dev team (bắt buộc với nhóm kỹ thuật)"
+    paths: ["03 - Resources/SDLC/"]
+    removable: true
+
+signals:
+  - id: DECISION
+    description: "Một quyết định được đưa ra"
+    routes_to: "02 - Areas/"
+    core: true
+  - id: TASK
+    description: "Việc cần làm có deadline"
+    routes_to: "01 - Projects/"
+    core: true
+
+frontmatter:
+  global: [tags, date, status]
+
+migrations: []

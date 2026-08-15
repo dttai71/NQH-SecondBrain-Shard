@@ -1,0 +1,38 @@
+---
+tags: [context, role]
+nguồn: "shardmind install {{ install_date }}"
+updated: "{{ install_date }}"
+---
+
+# My Role — Vai trò của tôi tại NQH
+
+> File này do `shardmind install` điền sẵn từ câu trả lời lúc cài. Vai trò đổi → sửa lại đây
+> hoặc chạy `shardmind update` sau khi cập nhật hồ sơ.
+
+## Thông tin cơ bản
+- **Họ tên:** {{ ho_ten }}
+- **Chức danh:** {{ chuc_danh }}
+- **Phòng ban / CC:** {{ phong_ban }}
+- **PC / BU:** {{ pc_bu if pc_bu else "*(chưa điền)*" }}
+- **Báo cáo cho:** {{ bao_cao_cho if bao_cao_cho else "*(chưa điền)*" }}
+
+## Trách nhiệm chính
+{% if trach_nhiem_chinh and trach_nhiem_chinh|length > 0 -%}
+{% for item in trach_nhiem_chinh %}
+- {{ item }}
+{% endfor -%}
+{% else -%}
+- *(liệt kê 3-5 trách nhiệm chính)*
+{% endif %}
+
+## SOP thường dùng
+{% if sop_hay_dung and sop_hay_dung|length > 0 -%}
+{% for item in sop_hay_dung %}
+- {{ item }}
+{% endfor -%}
+{% else -%}
+- *(liệt kê SOP hay tra cứu, vd: SOP mở/đóng ca, SOP nhập hàng...)*
+{% endif %}
+
+## Ghi chú
+- *(ví dụ: ca xoay sáng/chiều, phụ trách thêm mảng X...)*

@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/breferrari/shardmind/main/schemas/shard.schema.json
+
+apiVersion: v1
+name: secondbrain-nqh
+namespace: nqh
+version: 1.0.0
+description: "SecondBrain — vault Obsidian cá nhân cho nhân viên NQH (PARA + AI agent)"
+persona: "Nhân viên NQH/NQDL/MTS — mọi vai trò"
+license: MIT
+homepage: https://github.com/dttai71/NQH-SecondBrain-Shard
+
+requires:
+  node: ">=22.0.0"
+  shardmind: ">=0.1.0"

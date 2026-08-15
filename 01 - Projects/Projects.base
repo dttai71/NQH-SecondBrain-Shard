@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.folder == "01 - Projects"
+    - file.ext == "md"
+properties:
+  status:
+    displayName: Trạng thái
+  owner:
+    displayName: Chủ trì
+  deadline:
+    displayName: Deadline
+views:
+  - type: table
+    name: Dự án
+    order:
+      - file.name
+      - status
+      - deadline
+      - owner
+    sort:
+      - property: deadline
+        direction: ASC
