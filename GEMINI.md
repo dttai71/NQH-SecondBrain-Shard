@@ -53,6 +53,20 @@ Hệ thống SOP NQH đã được index trên AI-Platform (CBrain). Khi ngườ
 - `09 - Skills/` = pattern/bài học tái dùng → sau khi giải xong việc khó, dùng `/distill` ghi lại; lần sau đọc Skills trước.
 - 2 chiều: ý tưởng→nội dung/code, và sau khi xong→cập nhật lại tài liệu/pattern.
 
+## `/consult` — phản biện đa-hãng trước quyết định khó
+
+`.claude/scripts/consult-litellm.py` hỏi **ba hãng AI khác nhau** (Claude/Anthropic · Kimi/Moonshot ·
+Qwen/Alibaba) qua cổng LiteLLM công ty, song song. Dùng khi người dùng phải chọn phương án / đổi
+hướng / cam kết nguồn lực đáng kể.
+
+- Gọi **đích danh** từng hãng, **không** dùng alias `auto` — `auto` tự chuyển hãng khi nghẽn, ba lần
+  gọi có thể ra cùng một model. Hỏi một model ba lần không phải ba ý kiến.
+- Trình bày: chỗ ba bên **đồng ý** · chỗ **mâu thuẫn** (quan trọng nhất) · hãng nào **không trả lời được**.
+  Nhận 2 ý kiến thì nói rõ là 2, đừng để người đọc tưởng đủ 3.
+- **Phản biện lại luôn**, đừng chỉ chuyển tiếp — bạn có bối cảnh vault mà model ngoài không có.
+- ⚠️ Cổng LiteLLM là của NQH nhưng **chuyển tiếp ra hãng ngoài** — cùng luật an toàn dưới đây:
+  không đưa lương / đánh giá cá nhân / dữ liệu khách / hợp đồng vào prompt.
+
 ## AN TOÀN (bắt buộc)
 
 - **Không** đưa dữ liệu mật của NQH (lương, hợp đồng, dữ liệu khách, tài liệu confidential) ra ngoài.
