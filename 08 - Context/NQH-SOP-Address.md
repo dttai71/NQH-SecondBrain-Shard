@@ -62,7 +62,7 @@ Ví dụ:
 .../viewer.html?file=RAG_Library/01_NQH-SOPs/01_Nhat_Quang_Holding/Finance/NQH-HO-FIN-SOP-008_Cash_Flow_Management.md
 ```
 
-**Cần đăng nhập SSO** `id.nhatquangholding.com`. Thư mục gốc:
+**Cần đăng nhập SSO công ty** (link đăng nhập nội bộ — hỏi IT). Thư mục gốc:
 
 | Thư mục | Chứa gì |
 |---|---|
