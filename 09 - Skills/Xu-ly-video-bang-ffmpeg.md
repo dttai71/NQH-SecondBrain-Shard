@@ -31,13 +31,15 @@ Agent tự probe file → chọn tool → chạy → kiểm tra kết quả → 
 ## Cạm bẫy
 
 - **Cần ffmpeg trên máy** (IT cài 1 lần): macOS `brew install ffmpeg`. Kiểm tra: mở terminal gõ `ffmpeg -version` thấy số phiên bản là được.
-- **Phụ đề tiếng Việt BẮT BUỘC chỉ định font macOS** (Helvetica Neue hoặc Arial) — font mặc định của skill (DejaVu Sans) không có trên máy Mac, máy sẽ thay bằng font khác và dấu chồng bị tách (vd "giớ i"). Khi yêu cầu phụ đề, nói rõ: *"chèn phụ đề tiếng Việt, font Helvetica Neue"*.
-- **Chống rung (stabilize) và xử lý màu HDR→SDR** cần bản ffmpeg đầy đủ (`brew install ffmpeg-full`) — bản Homebrew thường thiếu 2 bộ lọc này. Marketing quay iPhone thường không cần; agent sẽ báo rõ nếu máy thiếu.
+- **Phụ đề tiếng Việt: luôn nói rõ font** (Helvetica Neue hoặc Arial). Font mặc định của skill (DejaVu Sans) không có trên Mac; máy tự thay bằng font khác — có máy thay đúng, có máy dấu chồng bị tách (vd "giớ i"). Khi yêu cầu phụ đề, nói rõ: *"chèn phụ đề tiếng Việt, font Helvetica Neue"*.
+- **Chống rung (stabilize) và xử lý màu HDR→SDR** cần bộ lọc bản Homebrew thường thiếu. Marketing quay iPhone thường không cần. **Nếu cần thật thì đừng tự `brew install ffmpeg-full`** — bản đó là `keg-only`: cài xong **không tự thay bản cũ**, `ffmpeg -version` vẫn ra bản cũ, không báo lỗi gì. Nói với trợ lý *"tôi cần chống rung, ffmpeg thiếu vidstab"* — nó xử lý phần PATH.
 - **File lớn → chờ lâu** là bình thường (mã hoá lại video tốn thời gian thật). Cắt không mã hoá lại (copy) thì gần như tức thì — agent biết cách ưu tiên.
 - **Phụ đề tự động** cần giọng nói rõ; tiếng ồn lớn → phụ đề sai nhiều, phải sửa tay.
+- **Xuất Reels/TikTok từ video ngang:** mặc định máy **thêm viền đen** trên dưới (giữ nguyên khung). Muốn **cắt khung** cho đầy màn dọc thì nói rõ: *"xuất Reels, cắt khung không viền đen"* — chú ý phần hai bên sẽ bị cắt, kiểm lại chữ/logo có bị mất không.
+- **Âm lượng:** clip quay điện thoại thường quá nhỏ (đo được −21 LUFS, chuẩn mạng xã hội −14). Nói *"chuẩn hoá âm lượng cho Reels rồi xuất"* — nếu không, bước kiểm tra cuối sẽ báo FAIL loudness dù video đúng khổ.
 - **Luôn kiểm tra file xuất** (mở xem thử) trước khi đăng — AI kiểm tra kỹ thuật được, nhưng "đẹp hay chưa" là mắt người.
 - Không dùng để **chỉnh sửa nội dung gốc duy nhất** — luôn giữ file gốc, xuất ra file mới.
-- **Tạo hình/video mới bằng AI (không phải cắt dựng)** → dùng OGA Studios (link nội bộ — hỏi IT), không phải skill này. Skill này chỉ xử lý footage quay sẵn trên máy.
+- **Tạo hình/video mới bằng AI (không phải cắt dựng)** → dùng **NQH Creative Studio** (https://studio.nhatquangholding.com, đăng nhập NQH SSO), không phải skill này. Luồng: tạo ở Studio → **Tải xuống** → kéo vào vault → nhờ trợ lý cắt/phụ đề/xuất. Không có nút gửi thẳng.
 
 ## Cập nhật skill
 
