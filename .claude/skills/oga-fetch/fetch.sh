@@ -3,7 +3,9 @@
 set -euo pipefail
 
 : "${STUDIO_URL:?thiếu STUDIO_URL — đặt trong .env của vault}"
-: "${STUDIO_ASSET_KEY:?thiếu STUDIO_ASSET_KEY — key cá nhân, hỏi @itadmin}"
+# Một khoá (CEO 14/09, ECO-DEC-107): dùng NQH_AI_KEY của vault; STUDIO_ASSET_KEY chỉ là fallback thí điểm.
+STUDIO_ASSET_KEY="${NQH_AI_KEY:-${STUDIO_ASSET_KEY:-}}"
+: "${STUDIO_ASSET_KEY:?thiếu NQH_AI_KEY — lấy ở portal.nhatquangholding.com/my-ai-key, dán vào .env vault}"
 command -v jq >/dev/null || { echo "cần jq" >&2; exit 1; }
 if command -v sha256sum >/dev/null; then SHA() { sha256sum "$1" | cut -d' ' -f1; }
 elif command -v shasum   >/dev/null; then SHA() { shasum -a 256 "$1" | cut -d' ' -f1; }

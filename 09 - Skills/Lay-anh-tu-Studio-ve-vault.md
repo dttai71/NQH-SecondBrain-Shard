@@ -8,7 +8,7 @@ updated: "2026-09-14"
 
 > Kỹ năng cho AI agent trong SecondBrain: kéo ảnh/video bạn vừa tạo ở **NQH Creative Studio** về thẳng `00 - Inbox/studio/`, kèm file `.json` "giấy khai sinh" (tạo bằng AI, model nào, prompt gì, mã kiểm tra sha256). Không cần bấm Tải xuống rồi kéo tay nữa.
 >
-> **Trạng thái 14/09:** pilot — E2E 9/10 đạt (dòng 10 = kiểm thu hồi key, chờ IT). Thử được ngay; đường cũ (Tải xuống → kéo vào vault) vẫn dùng song song.
+> **Trạng thái 14/09:** THÍ ĐIỂM, chưa áp dụng đại trà (CEO: một tài khoản SSO + một Khoá AI). E2E 9/10 đạt trên Studio thật. Đường chính vẫn là **Tải xuống → kéo vào vault**; skill này dùng thử được ngay với khoá pilot IT cấp.
 
 ## Khi nào dùng
 
@@ -17,14 +17,11 @@ updated: "2026-09-14"
 
 ## Cần gì (làm 1 lần)
 
-1. **Key cá nhân** do IT cấp (`assets:read`, hết hạn sau 90 ngày). IT đưa bạn một dòng dạng `NQH_AI_KEY=aip_…`.
-2. Mở file `.env` trong thư mục gốc vault (tạo nếu chưa có), dán:
-   ```
-   STUDIO_URL=https://studio.nhatquangholding.com
-   STUDIO_ASSET_KEY=aip_…        # dán giá trị NQH_AI_KEY của bạn vào đây
-   ```
-   Không đưa key vào ghi chú, không commit, không chat.
+1. **Khoá AI** duy nhất của bạn (`NQH_AI_KEY` — đã có trong `.env` vault nếu bạn cài SecondBrain theo hướng dẫn mục 1.4). Không cần xin khoá riêng cho Studio.
+2. Thêm 1 dòng vào `.env` vault: `STUDIO_URL=https://studio.nhatquangholding.com`
 3. Máy cần `curl`, `jq` (`brew install jq`), `shasum` (có sẵn trên Mac).
+
+> **Thí điểm 14/09:** Studio đang xác thực bằng khoá AIP riêng (IT cấp, `STUDIO_ASSET_KEY`). Khi Studio chuyển sang nhận chính Khoá AI (ADR-030 D6 rev4), chỉ cần `NQH_AI_KEY` — skill đã đọc `NQH_AI_KEY` trước, `STUDIO_ASSET_KEY` sau. Người thử pilot: IT đưa dòng `STUDIO_ASSET_KEY=aip_…`, dán cạnh `NQH_AI_KEY`.
 
 ## Cách dùng
 
