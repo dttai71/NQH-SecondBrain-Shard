@@ -21,7 +21,7 @@ updated: "2026-09-14"
 2. Mở file `.env` trong thư mục gốc vault (tạo nếu chưa có), dán:
    ```
    STUDIO_URL=https://studio.nhatquangholding.com
-   STUDIO_ASSET_KEY=aip_…        # dán giá trị NQH_AI_KEY của bạn vào đây
+   NQH_AI_KEY=sk-…               # cùng khoá LiteLLM bạn đã đặt cho AI trong vault — không cần khoá riêng
    ```
    Không đưa key vào ghi chú, không commit, không chat.
 3. Máy cần `curl`, `jq` (`brew install jq`), `shasum` (có sẵn trên Mac).

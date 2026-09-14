@@ -3,7 +3,10 @@
 set -euo pipefail
 
 : "${STUDIO_URL:?thiếu STUDIO_URL — đặt trong .env của vault}"
-: "${STUDIO_ASSET_KEY:?thiếu STUDIO_ASSET_KEY — key cá nhân, hỏi @itadmin}"
+# ADR-030 D6 rev5: Studio xác thực bằng chính NQH_AI_KEY (khoá LiteLLM một người một khoá, ECO-DEC-107).
+# STUDIO_ASSET_KEY chỉ còn là tên cũ — giữ để .env đã có không gãy.
+STUDIO_ASSET_KEY="${NQH_AI_KEY:-${STUDIO_ASSET_KEY:-}}"
+: "${STUDIO_ASSET_KEY:?thiếu NQH_AI_KEY — khoá LiteLLM của bạn, cùng khoá dùng cho AI trong vault (02_Installation §1.4)}"
 command -v jq >/dev/null || { echo "cần jq" >&2; exit 1; }
 if command -v sha256sum >/dev/null; then SHA() { sha256sum "$1" | cut -d' ' -f1; }
 elif command -v shasum   >/dev/null; then SHA() { shasum -a 256 "$1" | cut -d' ' -f1; }

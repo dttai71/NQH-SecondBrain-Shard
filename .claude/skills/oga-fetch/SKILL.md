@@ -18,14 +18,14 @@ Người dùng nói một câu kiểu:
 | Biến | Ví dụ | Ghi chú |
 |---|---|---|
 | `STUDIO_URL` | `https://studio.nhatquangholding.com` | Gốc của Studio. |
-| `STUDIO_ASSET_KEY` | `oga_...` | **Key cá nhân** (một key một người, ADR-030 §D6). |
+| `NQH_AI_KEY` | `sk-...` | **Cùng khoá LiteLLM bạn đã có** cho AI trong vault (ECO-DEC-107: một người một khoá). Studio xác thực nó qua LiteLLM `/key/info` (ADR-030 §D6 rev5). Tên cũ `STUDIO_ASSET_KEY` vẫn được đọc nếu `NQH_AI_KEY` chưa đặt. |
 
-`STUDIO_ASSET_KEY` nằm trong `.env` của vault nhân viên, **KHÔNG commit vào Shard**. Thiếu env
+`NQH_AI_KEY` nằm trong `.env` của vault nhân viên, **KHÔNG commit vào Shard**. Thiếu env
 thì fail-closed: dừng, báo người dùng, không đoán.
 
 ## Hai lời gọi
 
-Cả hai đều gửi header `x-api-key: $STUDIO_ASSET_KEY`.
+Cả hai đều gửi header `x-api-key: $NQH_AI_KEY`.
 
 1. `GET {STUDIO_URL}/api/v1/media/assets?since=<ISO8601>&limit=<int>` → danh sách sidecar-shaped
    rows, mới nhất trước (ADR-030 §D5).
@@ -53,7 +53,7 @@ Không khớp → **xoá cả file lẫn sidecar vừa ghi**, báo cáo id hỏn
 | HTTP | Nói với người dùng |
 |---|---|
 | 400 | id sai định dạng (không phải 32 hex thường) — lỗi của skill, không phải của Studio. |
-| 401 | "Key hết hạn hoặc bị thu hồi — hỏi @itadmin cấp lại." |
+| 401 | "Khoá LiteLLM sai, hết hạn, bị thu hồi, hoặc tài khoản không thuộc domain công ty — thử khoá đó với chat AI trước; vẫn 401 thì hỏi @itadmin." |
 | 404 | "Asset đã bị dọn (retention 30 ngày)." |
 | 429 | Quá 60 req/phút — chờ rồi thử lại, không vòng lặp gấp. |
 | 5xx | Studio lỗi — báo lại, không retry vô hạn. |
