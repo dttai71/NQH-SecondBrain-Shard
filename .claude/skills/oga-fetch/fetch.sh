@@ -3,8 +3,8 @@
 set -euo pipefail
 
 : "${STUDIO_URL:?thiếu STUDIO_URL — đặt trong .env của vault}"
-# Một khoá (CEO 14/09, ECO-DEC-107): đích là NQH_AI_KEY của vault. Trong thí điểm Studio còn xác thực khoá AIP riêng → STUDIO_ASSET_KEY.
-STUDIO_ASSET_KEY="${STUDIO_ASSET_KEY:-${NQH_AI_KEY:-}}"   # pilot key thắng khi có; xoá nó khi Studio nhận Khoá AI
+# Một khoá (CEO 14/09, ECO-DEC-107; ADR-030 D6 rev5): Studio nhận chính Khoá AI của bạn — không có khoá riêng.
+STUDIO_ASSET_KEY="${NQH_AI_KEY:-}"
 : "${STUDIO_ASSET_KEY:?thiếu NQH_AI_KEY — lấy ở portal.nhatquangholding.com/my-ai-key, dán vào .env vault}"
 command -v jq >/dev/null || { echo "cần jq" >&2; exit 1; }
 if command -v sha256sum >/dev/null; then SHA() { sha256sum "$1" | cut -d' ' -f1; }

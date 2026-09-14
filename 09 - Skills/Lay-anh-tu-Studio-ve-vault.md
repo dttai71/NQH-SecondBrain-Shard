@@ -17,11 +17,9 @@ updated: "2026-09-14"
 
 ## Cần gì (làm 1 lần)
 
-1. **Khoá AI** duy nhất của bạn (`NQH_AI_KEY` — đã có trong `.env` vault nếu bạn cài SecondBrain theo hướng dẫn mục 1.4). Không cần xin khoá riêng cho Studio.
+1. **Khoá AI** duy nhất của bạn (`NQH_AI_KEY` — đã có trong `.env` vault theo hướng dẫn cài mục 1.4). Không cần xin khoá riêng cho Studio; Studio hỏi LiteLLM xem khoá còn sống không.
 2. Thêm 1 dòng vào `.env` vault: `STUDIO_URL=https://studio.nhatquangholding.com`
 3. Máy cần `curl`, `jq` (`brew install jq`), `shasum` (có sẵn trên Mac).
-
-> **Thí điểm 14/09:** Studio đang xác thực bằng khoá AIP riêng (IT cấp, `STUDIO_ASSET_KEY`). Khi Studio chuyển sang nhận chính Khoá AI (ADR-030 D6 rev4), chỉ cần `NQH_AI_KEY` — xoá dòng `STUDIO_ASSET_KEY` là xong. Người thử pilot: IT đưa dòng `STUDIO_ASSET_KEY=aip_…`, dán cạnh `NQH_AI_KEY` — khi có dòng này skill dùng nó, không có thì dùng `NQH_AI_KEY`.
 
 ## Cách dùng
 
@@ -44,14 +42,14 @@ updated: "2026-09-14"
 | 2 | Nói "Lấy ảnh vừa tạo ở Studio về vault" | `đã lấy: …png` + 2 file trong `00 - Inbox/studio/` |
 | 3 | Mở file `.json` | `"ai_generated": true`, `"model": "flux2-klein-4b"`, có `"sha256"` |
 | 4 | Nói lại lần nữa | `đã có, bỏ qua` — không tải trùng |
-| 5 | Sửa `.env` thành key sai rồi thử | `401 — key hết hạn hoặc bị thu hồi` — không tải gì |
+| 5 | Sửa `NQH_AI_KEY` thành giá trị sai rồi thử | `401 — key hết hạn hoặc bị thu hồi` — không tải gì |
 
-Lỗi thường gặp: `401` → key sai/hết hạn, hỏi IT · `404` → ảnh đã bị dọn (Studio giữ 30 ngày) · `429` → chờ 1 phút · `thiếu STUDIO_ASSET_KEY` → chưa có `.env`.
+Lỗi thường gặp: `401` → key sai/hết hạn, hỏi IT · `404` → ảnh đã bị dọn (Studio giữ 30 ngày) · `429` → chờ 1 phút · `thiếu NQH_AI_KEY` → chưa có `.env`.
 
 ## Luật
 
 - File `.json` là bằng chứng ảnh tạo bằng AI (yêu cầu §D6 quy chế thương hiệu) — **không tách, không xoá** khi chuyển đi đâu.
-- Key là của **cá nhân**, nghỉ việc = IT thu hồi. Không cho mượn.
+- Khoá AI là của **cá nhân** — IT khoá ở LiteLLM là mất cả AI lẫn Studio. Không cho mượn.
 - Không nối thẳng Studio → BAP/Postiz; mọi đăng tải vẫn đi qua BAP.
 
 ## Cập nhật skill
