@@ -1,7 +1,7 @@
 ---
 tags: [skill]
 domain: "Marketing/Video"
-updated: "2026-09-11"
+updated: "2026-09-14"
 ---
 
 # Cắt dựng & xử lý video bằng AI (ffmpeg-skill)
@@ -39,7 +39,7 @@ Agent tự probe file → chọn tool → chạy → kiểm tra kết quả → 
 - **Âm lượng:** clip quay điện thoại thường quá nhỏ (đo được −21 LUFS, chuẩn mạng xã hội −14). Nói *"chuẩn hoá âm lượng cho Reels rồi xuất"* — nếu không, bước kiểm tra cuối sẽ báo FAIL loudness dù video đúng khổ.
 - **Luôn kiểm tra file xuất** (mở xem thử) trước khi đăng — AI kiểm tra kỹ thuật được, nhưng "đẹp hay chưa" là mắt người.
 - Không dùng để **chỉnh sửa nội dung gốc duy nhất** — luôn giữ file gốc, xuất ra file mới.
-- **Tạo hình/video mới bằng AI (không phải cắt dựng)** → dùng **NQH Creative Studio** (https://studio.nhatquangholding.com, đăng nhập NQH SSO), không phải skill này. Luồng: tạo ở Studio → **Tải xuống** → kéo vào vault → nhờ trợ lý cắt/phụ đề/xuất. Không có nút gửi thẳng.
+- **Tạo hình/video mới bằng AI (không phải cắt dựng)** → dùng **NQH Creative Studio** (https://studio.nhatquangholding.com, đăng nhập NQH SSO), không phải skill này. Luồng: tạo ở Studio → nói "lấy ảnh vừa tạo ở Studio về vault" (skill [[Lay-anh-tu-Studio-ve-vault]], pilot 14/09) → nhờ trợ lý cắt/phụ đề/xuất. Đường cũ **Tải xuống** → kéo vào vault vẫn dùng được.
 
 ## Cập nhật skill
 
