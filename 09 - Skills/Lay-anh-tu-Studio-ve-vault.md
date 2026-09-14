@@ -21,7 +21,7 @@ updated: "2026-09-14"
 2. Thêm 1 dòng vào `.env` vault: `STUDIO_URL=https://studio.nhatquangholding.com`
 3. Máy cần `curl`, `jq` (`brew install jq`), `shasum` (có sẵn trên Mac).
 
-> **Thí điểm 14/09:** Studio đang xác thực bằng khoá AIP riêng (IT cấp, `STUDIO_ASSET_KEY`). Khi Studio chuyển sang nhận chính Khoá AI (ADR-030 D6 rev4), chỉ cần `NQH_AI_KEY` — skill đã đọc `NQH_AI_KEY` trước, `STUDIO_ASSET_KEY` sau. Người thử pilot: IT đưa dòng `STUDIO_ASSET_KEY=aip_…`, dán cạnh `NQH_AI_KEY`.
+> **Thí điểm 14/09:** Studio đang xác thực bằng khoá AIP riêng (IT cấp, `STUDIO_ASSET_KEY`). Khi Studio chuyển sang nhận chính Khoá AI (ADR-030 D6 rev4), chỉ cần `NQH_AI_KEY` — xoá dòng `STUDIO_ASSET_KEY` là xong. Người thử pilot: IT đưa dòng `STUDIO_ASSET_KEY=aip_…`, dán cạnh `NQH_AI_KEY` — khi có dòng này skill dùng nó, không có thì dùng `NQH_AI_KEY`.
 
 ## Cách dùng
 
