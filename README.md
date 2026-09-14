@@ -40,7 +40,7 @@ Mở vault trong **VS Code** (File → Open Folder), rồi dùng extension AI:
 
 ## Kết nối thêm — MTClaw, Email/Lịch
 
-1. Tạo file **`.env`** trong vault (đã có sẵn khung, điền key vào):
+1. Đổi tên **`.env.example` → `.env`** trong vault (khung có sẵn, điền key vào — `.env` không bao giờ vào git):
    ```
    NQH_AI_KEY=<lấy tại portal.nhatquangholding.com/my-ai-key>
    MTCLAW_API_KEY=<xin @devops>
