@@ -50,4 +50,4 @@ https://docs.nhatquangholding.com/viewer.html?file=RAG_Library/01_NQH-SOPs/01_Nh
 - Link Docsify **cần đăng nhập SSO** — khác với repo GitHub training (public, không cần tài khoản).
 
 ## Nguồn
-- `NQH-GROUP-SOP-SYSTEM/01_NQH-SOPs/CLAUDE.md`, `NQH-HO-OPS-STD-MASTER_SOP_Registry.md`
+- `RAG_Library/01_NQH-SOPs/CLAUDE.md`, `NQH-HO-OPS-STD-MASTER_SOP_Registry.md`
