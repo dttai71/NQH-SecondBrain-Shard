@@ -11,7 +11,7 @@ Cần tìm SOP/JD của phòng ban/vai trò mình, hoặc chia sẻ link tới 1
 
 ## Cách làm (các bước)
 
-1. Đăng nhập **SSO công ty** (link nội bộ — hỏi IT) → mở **docs.nhatquangholding.com**.
+1. Mở **docs.nhatquangholding.com** → chọn **Đăng nhập qua NQH SSO** → redirect đến IdP (Zitadel) → đăng nhập bằng tài khoản MS365 `@nqh.com.vn` hoặc Gmail cá nhân (nếu không có email MS365).
 2. Tìm theo mã SOP hoặc duyệt cây thư mục (xem cấu trúc bên dưới). Danh mục trung tâm:
    `01_NQH-SOPs/01_Nhat_Quang_Holding/NQH-HO-OPS-STD-MASTER_SOP_Registry.md`
 3. **Công thức link Docsify:**
