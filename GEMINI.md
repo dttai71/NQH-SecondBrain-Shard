@@ -62,6 +62,7 @@ Hệ thống SOP NQH đã được index trên AI-Platform (CBrain). Khi ngườ
 
 - `08 - Context/` = mô tả người dùng (vai trò, stack, preferences) → đọc đầu phiên để cá nhân hóa; thấy thói quen mới → đề xuất cập nhật (chờ duyệt).
 - `09 - Skills/` = pattern/bài học tái dùng → sau khi giải xong việc khó, dùng `/distill` ghi lại; lần sau đọc Skills trước.
+  Skill dùng chung của NQH **không nằm trong repo công khai này** — tải `skills.zip` tại `docs.nhatquangholding.com` (cần NQH SSO), xem `09 - Skills/README.md`.
 - 2 chiều: ý tưởng→nội dung/code, và sau khi xong→cập nhật lại tài liệu/pattern.
 
 ## `/consult` — phản biện đa-hãng trước quyết định khó
