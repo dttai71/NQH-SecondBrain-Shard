@@ -18,14 +18,14 @@ Người dùng nói một câu kiểu:
 | Biến | Ví dụ | Ghi chú |
 |---|---|---|
 | `STUDIO_URL` | `https://studio.nhatquangholding.com` | Gốc của Studio. |
-| `NQH_AI_KEY` | `sk-...` | **Cùng khoá LiteLLM bạn đã có** cho AI trong vault (ECO-DEC-107: một người một khoá). Studio xác thực nó qua LiteLLM `/key/info` (ADR-030 §D6 rev5). Tên cũ `STUDIO_ASSET_KEY` vẫn được đọc nếu `NQH_AI_KEY` chưa đặt. |
+| `LITELLM_API_KEY` | `sk-...` | **Cùng khoá LiteLLM bạn đã có** cho AI trong vault (ECO-DEC-107: một người một khoá). Studio xác thực nó qua LiteLLM `/key/info` (ADR-030 §D6 rev5). Tên cũ `NQH_AI_KEY`, `STUDIO_ASSET_KEY` vẫn được đọc nếu `LITELLM_API_KEY` chưa đặt. |
 
-`NQH_AI_KEY` nằm trong `.env` của vault nhân viên, **KHÔNG commit vào Shard**. Thiếu env
+`LITELLM_API_KEY` nằm trong `.env` của vault nhân viên, **KHÔNG commit vào Shard**. Thiếu env
 thì fail-closed: dừng, báo người dùng, không đoán.
 
 ## Hai lời gọi
 
-Cả hai đều gửi header `x-api-key: $NQH_AI_KEY`.
+Cả hai đều gửi header `x-api-key: $LITELLM_API_KEY`.
 
 1. `GET {STUDIO_URL}/api/v1/media/assets?since=<ISO8601>&limit=<int>` → danh sách sidecar-shaped
    rows, mới nhất trước (ADR-030 §D5).
