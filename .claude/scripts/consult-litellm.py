@@ -8,7 +8,7 @@ Usage:
   consult-litellm.py "<câu hỏi + bối cảnh>"                  # cả 3 hãng
   consult-litellm.py "<câu hỏi>" kimi qwen                   # chọn tập con
 
-Key: NQH_AI_KEY trong .env của vault (IT cấp qua Portal). KHÔNG hardcode key.
+Key: LITELLM_API_KEY trong .env của vault (tự lấy qua Portal). Tên cũ NQH_AI_KEY vẫn đọc được. KHÔNG hardcode key.
 KHÔNG gửi dữ liệu nhạy cảm (lương, đánh giá cá nhân, dữ liệu khách, hợp đồng)
 — gateway là của NQH nhưng nó CHUYỂN TIẾP tới Anthropic/Moonshot/Alibaba.
 """
@@ -41,9 +41,9 @@ def load_env():
             return
 
 def ask(label, model, prompt):
-    key = os.environ.get("NQH_AI_KEY")
+    key = os.environ.get("LITELLM_API_KEY") or os.environ.get("NQH_AI_KEY")  # tên cũ
     if not key or key.startswith("<"):
-        return (label, None, "NQH_AI_KEY chưa set trong .env — lấy tại portal.nhatquangholding.com/my-ai-key")
+        return (label, None, "LITELLM_API_KEY chưa set trong .env — lấy tại portal.nhatquangholding.com/my-ai-key")
     body = json.dumps({"model": model, "messages": [
         {"role": "system", "content": SYSTEM},
         {"role": "user", "content": prompt}]}).encode()

@@ -42,9 +42,10 @@ Mở vault trong **VS Code** (File → Open Folder), rồi dùng extension AI:
 
 1. Đổi tên **`.env.example` → `.env`** trong vault (khung có sẵn, điền key vào — `.env` không bao giờ vào git):
    ```
-   NQH_AI_KEY=<lấy tại portal.nhatquangholding.com/my-ai-key>
-   MTCLAW_API_KEY=<xin @devops>
+   LITELLM_API_KEY=<lấy tại portal.nhatquangholding.com/my-ai-key>
    ```
+   **Chỉ một khoá** cho mọi thứ: AI trong vault, MTClaw (MCP + gửi tin), Studio. Không xin
+   `MTCLAW_API_KEY` riêng. `.env` cũ còn ghi `NQH_AI_KEY` thì vẫn chạy — đổi tên khi tiện.
 2. Nói với AI agent: *"đọc .env, cấu hình MCP MTClaw/email giúp tôi"* — hoặc làm tay theo
    `02_Installation.md` mục F (Email/Lịch) + mục I (MTClaw).
 3. **Đã tích hợp sẵn trong vault này:**
